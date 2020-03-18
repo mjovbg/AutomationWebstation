@@ -1,13 +1,26 @@
+from base.selenium_driver import SeleniumDriver
+class LoginPage(SeleniumDriver):
 
-class LoginPage():
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
+
         # Locators:
         self.username_id    =   "userName"
         self.password_id    =   "password"
         self.eula_css_check =   '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
         self.eula_confirm_id=   'eulaAccepted'
         self.login_btn_id   =   "loginUser"
+    # # Returning locators:
+    # def getUsernameField(self):
+    #     return self.driver.find_element_by_id(self.username_id)
+    # def getPasswordField(self):
+    #     return self.driver.find_element_by_id(self.password_id)
+    # def getEulaBox(self):
+    #     return self.driver.find_element_by_id('eulaAccepted')
+    # def getLoginLink(self):
+    #     return self.driver.find_element_by_id(self.login_btn_id)
+    #
 
     def enter_username(self, username):
         self.driver.find_element_by_id(self.username_id).clear()
