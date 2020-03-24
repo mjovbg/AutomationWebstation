@@ -33,9 +33,9 @@ class SeleniumDriver():
             locatorType = locatorType.lower()
             byType = self.getByType(locatorType)
             element = self.driver.find_element(byType, locator)
-            print("Element Found with locator ")
+            print("Element Found with locator: " + locator + " and locatorType: " + locatorType)
         except:
-            print("Element not found")
+            print("Element not found with locator: " + locator + " and locatorType: " + locatorType)
         return element
 
     def elementClick(self, locator, locatorType="id"):
@@ -66,6 +66,18 @@ class SeleniumDriver():
             print("Sent data on element with locator: " + locator + " locatorType: " + locatorType)
         except:
             print("Cannot send data on the element with locator: " + locator + " locatorType: " + locatorType)
+            print_stack()
+
+    def clearElement(self, locator, locatorType="id"):
+        '''
+        clear fields of any inputs.
+        '''
+        try:
+            element = self.getElement(locator, locatorType)
+            element.clear()
+            print("Cleared on element with locator: " + locator + " locatorType: " + locatorType)
+        except:
+            print("Cannot clear the element with locator: " + locator + " locatorType: " + locatorType)
             print_stack()
 
     def isElementPresent(self, locator, locatorType = 'id'):
