@@ -75,10 +75,23 @@ class SeleniumDriver():
         try:
             element = self.getElement(locator, locatorType)
             element.clear()
-            print("Cleared on element with locator: " + locator + " locatorType: " + locatorType)
+            print("Cleared the element with locator: " + locator + " locatorType: " + locatorType)
         except:
             print("Cannot clear the element with locator: " + locator + " locatorType: " + locatorType)
             print_stack()
+
+    def checkAttribute(self, locator, locatorType="id"):
+        '''
+        Used for checkboxes to check their status (checked/not checked).
+        '''
+        # element = None
+        # try:
+        element = self.getElement(locator, locatorType).get_attribute("checked")
+            # print("Status of element with locator: " + locator + " locatorType: " + locatorType + 'is' + element)
+        # except:
+        #     print("Cannot confirm the status of the element with locator: " + locator + " locatorType: " + locatorType)
+        #     print_stack()
+        return element
 
     def isElementPresent(self, locator, locatorType = 'id'):
         try:
