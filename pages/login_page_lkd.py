@@ -8,11 +8,13 @@ class LoginPage(SeleniumDriver):
         self.driver = driver
 
         # Locators:
-        self.username_id = "userName"
-        self.password_id = "password"
-        self.eula_css_check = '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
-        self.eula_confirm = '//*[@id="login"]/table[1]/tbody/tr[4]/td/label[1]/span'
-        self.login_btn_id = "loginUser"
+        self.username_id        = "userName"
+        self.password_id        = "password"
+        self.eula_css_check     = '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
+        self.eula_confirm       = '//*[@id="login"]/table[1]/tbody/tr[4]/td/label[1]/span'
+        self.login_btn_id       = "loginUser"
+        self.eula_warning_id    =  'diseabledCookiesMessage'
+        self.user_button_id     = 'user-button'
 
     def enterUsername(self, username):
         self.clearElement(self.username_id)
@@ -27,6 +29,14 @@ class LoginPage(SeleniumDriver):
 
     def clickLogin(self):
         self.elementClick(self.login_btn_id)
+
+    def verifyInvalidLogin(self):
+        result = self.isElementPresent(self.eula_warning_id)
+        return result
+
+    def verifyValidLogin(self):
+        result = self.isElementPresent(self.user_button_id)
+        return result
 
     def login_eula_check(self, username, password):
         """

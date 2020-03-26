@@ -17,6 +17,9 @@ class TestLogin:
         global login
         login = LoginPage(driver)
         login.login_no_eula(utils.USERNAME, utils.PASSWORD)
+        global result
+        result = login.verifyInvalidLogin()
+        assert result == True
         time.sleep(2)
 
     def test_false_username(self):
@@ -24,6 +27,8 @@ class TestLogin:
         Invalid Login test with the wrong username.
         '''
         login.login_eula_check(utils.USERNAME, utils.FALSE_PASSWORD)
+        result = login.verifyInvalidLogin()
+        assert result == True
         time.sleep(2)
 
     def test_false_password(self):
@@ -31,6 +36,8 @@ class TestLogin:
         Invalid Login test with a wrong password.
         '''
         login.login_eula_check(utils.FALSE_USERNAME, utils.PASSWORD)
+        result = login.verifyInvalidLogin()
+        assert result == True
         time.sleep(2)
 
     def test_valid_login(self):
@@ -38,6 +45,8 @@ class TestLogin:
         Valid login test
         '''
         login.login_eula_check(utils.USERNAME, utils.PASSWORD)
+        result_valid = login.verifyValidLogin()
+        assert result_valid == True
         time.sleep(3)
 
 
