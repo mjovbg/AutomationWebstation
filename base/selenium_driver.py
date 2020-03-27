@@ -86,7 +86,7 @@ class SeleniumDriver():
         '''
         # element = None
         # try:
-        element = self.getElement(locator, locatorType).get_attribute("checked")
+        element = self.getElement(locator, locatorType).is_selected()
             # print("Status of element with locator: " + locator + " locatorType: " + locatorType + 'is' + element)
         # except:
         #     print("Cannot confirm the status of the element with locator: " + locator + " locatorType: " + locatorType)

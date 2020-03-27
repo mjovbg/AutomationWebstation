@@ -48,14 +48,3 @@ class TestLogin:
         result_valid = login.verifyValidLogin()
         assert result_valid == True
         time.sleep(3)
-
-
-
-
-
-
-
-
-
-
-
