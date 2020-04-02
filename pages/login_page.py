@@ -1,5 +1,5 @@
 from base.selenium_driver import SeleniumDriver
-from utils import utils as utils
+
 
 class LoginPage(SeleniumDriver):
 
@@ -8,32 +8,52 @@ class LoginPage(SeleniumDriver):
         self.driver = driver
 
         # Locators:
-        self.username_id    =   "userName"
-        self.password_id    =   "password"
-        self.eula_css_check =   '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
-        self.eula_confirm_id=   'eulaAccepted'
-        self.login_btn_id   =   "loginUser"
+        self.username_id        = "userName"
+        self.password_id        = "password"
+        self.eula_css_check     = '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
+        self.eula_confirm       = '//*[@id="login"]/table[1]/tbody/tr[4]/td/label[1]/span'
+        self.login_btn_id       = "loginUser"
+        self.eula_warning_id    =  'diseabledCookiesMessage'
+        self.user_button_id     = 'user-button'
 
-    def enter_username(self, username):
-        self.driver.find_element_by_id(self.username_id).clear()
-        self.driver.find_element_by_id(self.username_id).send_keys(username)
+    def enterUsername(self, username):
+        self.clearElement(self.username_id)
+        self.sendKeys(username, self.username_id)
 
-    def enter_password(self, password):
-        self.driver.find_element_by_id(self.password_id).clear()
-        self.driver.find_element_by_id(self.password_id).send_keys(password)
+    def enterPassword(self, password):
+        self.clearElement(self.password_id)
+        self.sendKeys(password, self.password_id)
 
-    def check_eula(self):
-        attribute = self.driver.find_element_by_id('eulaAccepted').get_attribute("checked")
-        if attribute != 'true':
-            self.driver.find_element_by_css_selector(self.eula_css_check).click()
-    def uncheck_eula(self):
-        attribute = self.driver.find_element_by_id('eulaAccepted').get_attribute("checked")
-        if attribute == 'true':
-            self.driver.find_element_by_css_selector(self.eula_css_check).click()
-    def click_login(self):
-        self.driver.find_element_by_id(self.login_btn_id).click()
+    def clickEula(self):
+        self.elementClick(self.eula_css_check, locatorType='css')
 
+    def clickLogin(self):
+        self.elementClick(self.login_btn_id)
 
+    def verifyInvalidLogin(self):
+        result = self.isElementPresent(self.eula_warning_id)
+        return result
 
+    def verifyValidLogin(self):
+        result = self.isElementPresent(self.user_button_id)
+        return result
 
+    def login_eula_check(self, username, password):
+        """
+        Method for login tests when eula is checked.
+        """
+        self.enterUsername(username)
+        self.enterPassword(password)
+        if self.checkAttribute('eulaAccepted') != 'true':
+            self.clickEula()
+        self.clickLogin()
 
+    def login_no_eula(self, username, password):
+        """
+        Method for login tests when eula is NOT checked.
+        """
+        self.enterUsername(username)
+        self.enterPassword(password)
+        if self.checkAttribute('eulaAccepted') == 'true':
+            self.clickEula()
+        self.clickLogin()
