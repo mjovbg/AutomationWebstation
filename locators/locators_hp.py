@@ -22,7 +22,7 @@ class LocatorsHp:
     workspace_new_css   =   '#watchlistTabs > li.unsortable > table > tbody > tr > td > span'
 
     watchlist_css       =   '#watchlistButton > table > tbody > tr > td > a'
-    # use arrows_id
+    watchlist_new_css   =   '#rightDiv > div.main-pages-header.watchlist > a:nth-child(4)'
 
     covid_css           =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(9) > td > div > table > tbody > tr > td > a'
     covid_map_css       =   '#rightDiv > table > tbody > tr > td.coronaButtons > a.selected'
@@ -34,7 +34,7 @@ class LocatorsHp:
     screener_new_css    =   '#rightDiv > div.main-pages-header.trumpEfect > div'
 
     funds_css           =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(12) > td > div > table > tbody > tr > td > a'
-    funds_overvire_css  =   '#rightDiv > div.main-pages-header.funds > a.selected'
+    funds_overview_css  =   '#rightDiv > div.main-pages-header.funds > a.selected'
 
     portfolio_css       =   '#portfolioButton > table > tbody > tr > td > a'
     portfolio_new_css   =   '#rightDiv > div.main-pages-header.portfolio > a:nth-child(3)'
