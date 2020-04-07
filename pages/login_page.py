@@ -1,20 +1,12 @@
 from base.selenium_driver import SeleniumDriver
 from locators.locators_login_page import LocatorsLP
 
+
 class LoginPage(SeleniumDriver, LocatorsLP):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-
-        # # Locators:
-        # self.username_id        = "userName"
-        # self.password_id        = "password"
-        # self.eula_css_check     = '#login > table:nth-child(4) > tbody > tr:nth-child(4) > td > label.checkBoxLabel > span'
-        # self.eula_confirm       = '//*[@id="login"]/table[1]/tbody/tr[4]/td/label[1]/span'
-        # self.login_btn_id       = "loginUser"
-        # self.eula_warning_id    =  'diseabledCookiesMessage'
-        # self.user_button_id     = 'user-button'
 
     def enterUsername(self, username):
         self.clearElement(LocatorsLP.username_id)
@@ -40,7 +32,7 @@ class LoginPage(SeleniumDriver, LocatorsLP):
 
     def login_eula_check(self, username, password):
         """
-        Method for login tests when eula is checked.
+        Method for login tests (both valid and invalid) when eula is checked.
         """
         self.enterUsername(username)
         self.enterPassword(password)
@@ -59,5 +51,8 @@ class LoginPage(SeleniumDriver, LocatorsLP):
         self.clickLogin()
 
     def logout(self):
+        """
+        Performs logout.
+        """
         self.elementClick(LocatorsLP.user_button_id)
         self.elementClick(LocatorsLP.logout_css, locatorType='css')

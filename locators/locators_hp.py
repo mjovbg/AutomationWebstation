@@ -67,3 +67,7 @@ class LocatorsHp:
 
     user_button_id = 'user-button'
     logout_css     = '#user-menu > ul > li:nth-child(11) > a'
+
+    # LOCATORS THAT SERVE FOR ASSERTIONS:
+    column_picker_class     =   'columnPicker-icon'
+

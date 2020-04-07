@@ -1,15 +1,12 @@
 from selenium import webdriver
 import pytest, time, moment
-
-from selenium import webdriver
 import pytest, time, moment
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
-from tests.login_test import TestLogin
 from utils import utils as utils
 
 @pytest.mark.usefixtures("test_setup")
-class TestNavbar():
+class TestNavbar:
 
     def test_login(self):
         global driver

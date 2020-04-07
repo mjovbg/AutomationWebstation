@@ -1,23 +1,17 @@
 from locators.locators_hp import LocatorsHp
+from locators.locators_login_page import LocatorsLP
 from base.selenium_driver import SeleniumDriver
 
-class HomePage(LocatorsHp, SeleniumDriver):
+class HomePage(LocatorsHp, LocatorsLP, SeleniumDriver):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        # Locators - Header:
-        self.user_button_id      = 'user-button'
-        self.logout_button_css   = '#user-menu > ul > li:nth-child(11) > a'
-
-        # Locators - Navigation - Vertical bar:
-        self.markets_css    =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(1) > td > div > table > tbody > tr > td.icon-container.icon-container-with-tree > a'
-
 
     def click_user_button(self):
-        self.driver.find_element_by_id(self.user_button_id).click()
+        self.driver.find_element_by_id(LocatorsLP.user_button_id).click()
 
     def click_logout(self):
-        self.driver.find_element_by_css_selector(self.logout_button_css).click()
+        self.driver.find_element_by_css_selector(LocatorsLP.logout_css, locatorType='css').click()
 
     def click_markets(self):
         self.elementClick(LocatorsHp.markets_css, locatorType='css')
