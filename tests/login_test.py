@@ -13,7 +13,6 @@ class TestLogin:
         '''
         global driver
         driver = self.driver
-        # driver.get(utils.URL)
         global login
         login = LoginPage(driver)
         login.login_no_eula(utils.USERNAME, utils.PASSWORD)
