@@ -19,7 +19,7 @@ class LocatorsHp:
     news_home_css       =   '#reactnews > div > div.news-overview-header > ul > li:nth-child(1) > span'
 
     workspace_css       =   '#personalPageButton > table > tbody > tr > td.icon-container.icon-container-with-tree > a'
-    workspace_new_css   =   '#watchlistTabs > li.unsortable > table > tbody > tr > td > span'
+    workspace_new_css   =   '#watchlistTabs > li.unsortable'
 
     watchlist_css       =   '#watchlistButton > table > tbody > tr > td > a'
     watchlist_new_css   =   '#rightDiv > div.main-pages-header.watchlist > a:nth-child(4)'
@@ -30,8 +30,8 @@ class LocatorsHp:
     trump_css           =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(10) > td > div > table > tbody > tr > td > a'
     trump_icon_css      =   '#rightDiv > div.main-pages-header.trumpEfect > div'
 
-    screener_css        =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(10) > td > div > table > tbody > tr > td > a'
-    screener_new_css    =   '#rightDiv > div.main-pages-header.trumpEfect > div'
+    screener_css        =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(11) > td > div > table > tbody > tr > td > a'
+    screener_tab_css    =   '#ScreenerNavigation > table > tbody > tr > td:nth-child(2) > a'
 
     funds_css           =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(12) > td > div > table > tbody > tr > td > a'
     funds_overview_css  =   '#rightDiv > div.main-pages-header.funds > a.selected'
@@ -69,5 +69,54 @@ class LocatorsHp:
     logout_css     = '#user-menu > ul > li:nth-child(11) > a'
 
     # LOCATORS THAT SERVE FOR ASSERTIONS:
+    # Used for markets, currencies, commodities, fixed income, futures
     column_picker_class     =   'columnPicker-icon'
+
+    # used for news:
+    news_search_class       =   'newsSearchField'
+
+    # used for workspace (workspace title):
+    workspace_assert_css     =   '#rightDiv > div.main-pages-header.personal-pages > div'
+
+    # used for watchlist (watchlist title):
+    watchlist_assert_css     =   '#rightDiv > div.main-pages-header.watchlist > div'
+
+    # used for covid(covid title):
+    covid_assert_css        =   '#rightDiv > table > tbody > tr > td.title'
+
+    # used for trump effect (trump title):
+    trump_assert_css        =   '#rightDiv > div.main-pages-header.trumpEfect > div'
+
+    # used for screener (screener title):
+    screener_assert_css     =   '#rightDiv > div.main-pages-header.screenerHeader > div'
+
+    # used for funds
+    funds_assert_css       =   '#rightDiv > div.main-pages-header.funds > div'
+
+    # used for portfolio:
+    portfolio_assert_css    =   '#rightDiv > div.main-pages-header.portfolio > div'
+
+    # used for calendar
+    calendar_assert_css     =   '#rightDiv > div.main-pages-header.companyCalendar > div'
+
+    # used for analyzer:
+    analyzer_assert_css     =   '#rightDiv > div.main-pages-header.analyzerHeader > div'
+
+    # used for backtester:
+    backtester_assert_css   =   '#rightDiv > div.main-pages-header.back-tester > div.title'
+
+    # used for alerts:
+    alerts_assert_css       =   '#rightDiv > div.main-pages-header.alerts > div'
+
+    # used for economic data:
+    economic_assert_css     =   '#rightDiv > div.main-pages-header.economicCalendar > div'
+
+    # used for etfs:
+    etf_assert_css          =   '#rightDiv > div.main-pages-header.etf > div'
+
+    # used for derivatives:
+    derivatives_assert_css  =   '#rightDiv > div.main-pages-header.derivatives > div'
+
+    # used for real time:
+    realtime_assert_css     =   '#rightDiv > div.main-pages-header.realtimeIn > div'
 

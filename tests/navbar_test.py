@@ -1,6 +1,5 @@
 from selenium import webdriver
 import pytest, time, moment
-import pytest, time, moment
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from utils import utils as utils
@@ -83,4 +82,5 @@ class TestNavbar:
 
     def test_logout(self):
         login.logout()
+        time.sleep(3)
 
