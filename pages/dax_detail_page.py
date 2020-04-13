@@ -2,7 +2,7 @@ from base.selenium_driver import SeleniumDriver
 from locators.locators_login_page import LocatorsLP
 from locators.locators_hp import LocatorsHp
 from locators.locators_dax_dp import LocatorsDax, LocatorsDaxWaits, LocatorsDaxAsserts
-import time
+from selenium import webdriver          # you need it for switching focus/windows.
 
 class DaxDetailPage(SeleniumDriver, LocatorsDax):
 
@@ -20,6 +20,19 @@ class DaxDetailPage(SeleniumDriver, LocatorsDax):
         self.elementClick(LocatorsDax.dax_symbol_id)
         self.waitForElement(ldw.overview_chart_1d_id)
         self.isElementPresent(lda.overview_minichart_id)
+
+    def open_new_window(self):
+        self.elementClick(LocatorsDax.action_menu_id)
+        self.elementClick(LocatorsDax.open_newwindow_css, locatorType='css')
+        # Find parent handle -> Main Window
+        parent_handle = self.driver.current_window_handle
+        # Find all handles, there should two handles
+        handles = self.driver.window_handles
+        # Switch to new window:
+        for handle in handles:
+            if handle not in parent_handle:
+                self.driver.switch_to.window(handle)
+                self.driver.maximize_window()
 
     def click_constituents(self):
         self.elementClick(LocatorsDax.constituents_css, locatorType='css')

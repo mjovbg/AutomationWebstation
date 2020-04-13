@@ -29,37 +29,33 @@ class TestDetailPage:
         dp.click_dax()
         time.sleep(3)
 
+    def test_new_window(self):
+        dp.open_new_window()
+        time.sleep(3)
+
     def test_constituents(self):
         dp.click_constituents()
-        time.sleep(2)
 
     def test_overview(self):
         dp.click_overview()
-        time.sleep(2)
 
     def test_chart(self):
         dp.click_chart()
-        time.sleep(3)
 
     def test_topflop(self):
         dp.click_topflop()
-        time.sleep(2)
 
     def test_timessales(self):
         dp.click_timessales()
-        time.sleep(2)
 
     def test_news(self):
         dp.click_news()
-        time.sleep(2)
 
     def test_options(self):
         dp.click_options()
-        time.sleep(2)
 
     def test_derivatives(self):
         dp.click_derivatives()
-        time.sleep(2)
 
     def test_logout(self):
         login.logout()
