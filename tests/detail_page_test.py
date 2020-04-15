@@ -57,6 +57,21 @@ class TestDetailPage:
     def test_derivatives(self):
         dp.click_derivatives()
 
+    def test_adidas(self):
+        dp.click_adidas()
+
+    def test_adidas_profile(self):
+        dp.click_adidas_profile()
+
+    def test_adidas_financials(self):
+        dp.click_adidas_financials()
+
+    def test_adidas_analyzer(self):
+        dp.click_adidas_analyzer()
+
+    def test_adidas_tradescreen(self):
+        dp.click_adidas_tradescreen()
+
     def test_logout(self):
         login.logout()
         time.sleep(2)
