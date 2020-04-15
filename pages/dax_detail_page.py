@@ -3,8 +3,13 @@ from locators.locators_login_page import LocatorsLP
 from locators.locators_hp import LocatorsHp
 from locators.locators_dax_dp import LocatorsDax, LocatorsDaxWaits, LocatorsDaxAsserts, LocatorsAdidas
 from selenium import webdriver          # you need it for switching focus/windows.
+import utils.custom_logger as cl
+import logging
+
 
 class DaxDetailPage(SeleniumDriver, LocatorsDax, LocatorsAdidas):
+
+    log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
         # main advantage of super is with multiple inheritance where troubles may happen.

@@ -1,8 +1,12 @@
 from base.selenium_driver import SeleniumDriver
 from locators.locators_login_page import LocatorsLP
+import utils.custom_logger as cl
+import logging
 
 
 class LoginPage(SeleniumDriver, LocatorsLP):
+
+    log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
         super().__init__(driver)

@@ -1,8 +1,14 @@
 from locators.locators_hp import LocatorsHp
 from locators.locators_login_page import LocatorsLP
 from base.selenium_driver import SeleniumDriver
+import utils.custom_logger as cl
+import logging
+
 
 class HomePage(LocatorsHp, LocatorsLP, SeleniumDriver):
+
+    log = cl.customLogger(logging.DEBUG)
+
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
@@ -140,4 +146,3 @@ class HomePage(LocatorsHp, LocatorsLP, SeleniumDriver):
         assert realtime_element == True
 
     # Feedback??
-
