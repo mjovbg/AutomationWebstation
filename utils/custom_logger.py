@@ -1,6 +1,7 @@
 import inspect
 import logging
 
+
 def customLogger(logLevel=logging.DEBUG):
     # with debug you log everything.
     # Gets the name of the class / method from where this method is called (this is why you need inspect).
@@ -9,11 +10,12 @@ def customLogger(logLevel=logging.DEBUG):
     # By default, log all messages
     logger.setLevel(logging.DEBUG)
 
-    fileHandler = logging.FileHandler("automation.log".format(loggerName), mode='a')   # mode = w means it will overwrite the file every time you run it. a means append.
+    fileHandler = logging.FileHandler("automation.log".format(loggerName),
+                                      mode='w')  # mode = w means it will overwrite the file every time you run it. a means append.
     fileHandler.setLevel(logLevel)
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s',
-                    datefmt='%m/%d/%Y %I:%M:%S %p')
+                                  datefmt='%m/%d/%Y %I:%M:%S %p')
     fileHandler.setFormatter(formatter)
     logger.addHandler(fileHandler)
 

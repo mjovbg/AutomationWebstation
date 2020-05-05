@@ -1,8 +1,25 @@
 # Locators for side bar (navigation menu) and its pages.
 
 class LocatorsHp:
-    markets_css         =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(1) > td > div > table > tbody > tr > td.icon-container.icon-container-with-tree > a'
-    arrows_id   =   'sort_arrows'
+
+    # MARKETS PAGE:
+    markets_css                         =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(1) > td > div > table > tbody > tr > td.icon-container.icon-container-with-tree > a'
+    arrows_id                           =   'sort_arrows'
+    # Quick performance view:
+    market_quick_performance_css        =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-icon.pricepage-icon-QuickPerformance > a'
+    market_quick_performance_group_id   =   'GroupButtonId'
+    # Performance view:
+    market_performance_css              =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-icon.pricepage-icon-Performance > a'
+    market_performance_columnpicker_css =   'indicesOverviewPerformancePickerLink'
+    # Overivew view:
+    market_overview_css                 =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-icon.pricepage-icon-PricePage > a'
+    market_overivew_group_id           =   '#GroupButtonId'
+    # Chart view:
+    market_chart_css                    =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-icon.pricepage-icon-Chart > a'
+    market_chart_reload_css             =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-Reload > div > a'
+    # Quoteboard view:
+    market_quoteboard_css               =   '#rightDiv > div.tab-main.main-noTab > div.pricepage-icon-container > div.pricepage-icon.pricepage-icon-QuoteBoard > a'
+    market_quoteboard_picker_id         =   'QuoteBoardPickerLink'
 
     currencies_css      =   '#lowerDiv > div.navigation-vertical-container > table > tbody > tr:nth-child(2) > td > div > table > tbody > tr > td.icon-container.icon-container-with-tree > a'
     # use arrows_id
@@ -70,7 +87,10 @@ class LocatorsHp:
 
     # LOCATORS THAT SERVE FOR ASSERTIONS:
     # Used for markets, currencies, commodities, fixed income, futures
-    column_picker_class     =   'columnPicker-icon'
+    column_picker_class     =   'columnPicker-icon!!!'
+
+    #currencies
+    column_picker_currencies_id = 'currenciesPerformancePickerLink'
 
     # used for news:
     news_search_class       =   'newsSearchField'

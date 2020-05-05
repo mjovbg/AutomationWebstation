@@ -5,14 +5,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 import utils.custom_logger as cl
 import logging
+import time, os, moment, inspect
 
 
 class SeleniumDriver():
-
     log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
         self.driver = driver
+
+    def screenShot(self):
+
+        # step by step Automation - lesson 52
+        current_time = moment.now().strftime('%d-%m-%Y__%H-%M-%S')
+        test_name = inspect.stack()[1][3]
+        screenshot_name = test_name + '_ '+current_time
+        self.driver.save_screenshot('C:/MJ/MJ/PROJECTS/AutomationWebstation/reports/screenshots/' + screenshot_name + '.png')
 
     def getByType(self, locatorType):
         locatorType = locatorType.lower()
@@ -92,13 +100,13 @@ class SeleniumDriver():
         # element = None
         # try:
         element = self.getElement(locator, locatorType).get_attribute('checked')
-            # print("Status of element with locator: " + locator + " locatorType: " + locatorType + 'is' + element)
+        # print("Status of element with locator: " + locator + " locatorType: " + locatorType + 'is' + element)
         # except:
         #     print("Cannot confirm the status of the element with locator: " + locator + " locatorType: " + locatorType)
         #     print_stack()
         return element
 
-    def isElementPresent(self, locator, locatorType = 'id'):
+    def isElementPresent(self, locator, locatorType='id'):
         try:
             element = self.getElement(locator, locatorType)
             if element is not None:
@@ -125,12 +133,12 @@ class SeleniumDriver():
             return False
 
     def waitForElement(self, locator, locatorType="id",
-                               timeout=10, pollFrequency=0.5):
+                       timeout=10, pollFrequency=0.5):
         element = None
         try:
             byType = self.getByType(locatorType)
             self.log.info("Waiting for maximum :: " + str(timeout) +
-                  " :: seconds for element to be clickable")
+                          " :: seconds for element to be clickable")
             wait = WebDriverWait(self.driver, 10, poll_frequency=1,
                                  ignored_exceptions=[NoSuchElementException,
                                                      ElementNotVisibleException,

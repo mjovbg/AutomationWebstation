@@ -1,8 +1,9 @@
-from selenium import webdriver
+from base.selenium_driver import SeleniumDriver
 import pytest, time, moment
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from utils import utils as utils
+import allure
 
 
 @pytest.mark.usefixtures("test_setup")
@@ -45,7 +46,11 @@ class TestLogin:
         '''
         login.login_eula_check(utils.USERNAME, utils.PASSWORD)
         result_valid = login.verifyValidLogin()
-        assert result_valid == True
+        try:
+            assert result_valid == True
+        except:
+            driver.get_screenshot_as_file('C:/MJ/MJ/PROJECTS/AutomationWebstation/reports/screenshots/test.png')
+
         time.sleep(3)
 
     def test_logout(self):

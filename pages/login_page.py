@@ -3,7 +3,6 @@ from locators.locators_login_page import LocatorsLP
 import utils.custom_logger as cl
 import logging
 
-
 class LoginPage(SeleniumDriver, LocatorsLP):
 
     log = cl.customLogger(logging.DEBUG)
