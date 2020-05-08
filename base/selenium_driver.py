@@ -147,6 +147,6 @@ class SeleniumDriver():
                                                              "stopFilter_stops-0")))
             self.log.info("Element appeared on the web page")
         except:
-            self.log.info("Element not appeared on the web page")
+            self.log.info("Element not appeared on the web page - locator: " + locator)
             print_stack()
         return element
