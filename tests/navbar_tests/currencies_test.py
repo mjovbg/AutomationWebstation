@@ -38,7 +38,27 @@ class TestCurrencies:
         cp.click_currencies_overview()
         assert cp.verify_currencies_overview() == True
 
+    def test_currencies_chart(self):
+        cp.click_currencies_chart()
+        assert cp.verify_currencies_chart() == True
 
+    def test_currencies_quoteboard(self):
+        cp.click_currencies_quoteboard()
+        assert cp.verify_currencies_quoteboard() == True
 
+    def test_currencies_crossrates(self):
+        cp.click_currencies_crossrates()
+        assert cp.verify_currencies_crossrates() == True
 
+    def test_currencies_cryptos(self):
+        cp.click_currencies_cryptos()
+        assert cp.verify_currencies_cryptos() == True
+
+    def test_currencies_crypto_pairs(self):
+        cp.click_currencies_crypto_pairs()
+        assert cp.verify_currencies_crypto_pairs() == True
+
+    def test_currencies_crypto_news(self):
+        cp.click_currencies_crypto_news()
+        assert cp.verify_currencies_crypto_news() == True
 
